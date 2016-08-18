@@ -1,4 +1,4 @@
-# Angular2AutoScroll
+# Angular 2 auto scroll directive
 
 ## Installation
 npm install angular2-auto-scroll

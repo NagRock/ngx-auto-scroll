@@ -11,9 +11,9 @@ npm install angular2-auto-scroll
 import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.directive";
 
 @Component({
-   selector: 'click-meeting-chat',
-   templateUrl: 'chat.component.html',
-   styleUrls: ['chat.component.css'],
+   selector: 'sample',
+   templateUrl: 'sample.component.html',
+   styleUrls: ['sample.component.css'],
    directives: [Angular2AutoScroll]
 })
 ```

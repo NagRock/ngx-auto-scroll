@@ -25,3 +25,9 @@ import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.
 ```
 
 Argument passed to directive is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
+
+## Building
+
+```
+npm run build
+```

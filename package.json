@@ -1,6 +1,6 @@
 {
   "name": "angular2-auto-scroll",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Angular 2 directive to automatically scroll html container content to the bottom.",
   "main": "lib/angular2-auto-scroll.directive.js",
   "scripts": {
@@ -18,6 +18,10 @@
   },
   "devDependencies": {
     "typescript": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NagRock/angular2-auto-scroll"
   },
   "author": "kuster.maciej@gmail.com",
   "license": "ISC"

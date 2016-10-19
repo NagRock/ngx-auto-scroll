@@ -4,16 +4,12 @@ import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy}
     selector: '[angular2-auto-scroll]'
 })
 export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
-    @Input('angular2-auto-scroll') lockYOffset = 10;
-
-    @Input() set observeAttributes(observeAttributes: boolean) {
-        this._observeAttributes = observeAttributes || false;
-    }
+    @Input('lock-y-offset') lockYOffset = 10;
+    @Input('observe-attributes') observeAttributes: boolean = false;
 
     private nativeElement: HTMLElement;
     private isLocked = false;
     private mutationObserver: MutationObserver;
-    private _observeAttributes: boolean = false;
 
     constructor(element: ElementRef) {
         this.nativeElement = element.nativeElement;
@@ -34,7 +30,7 @@ export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
         this.mutationObserver.observe(this.nativeElement, {
             childList: true,
             subtree: true,
-            attributes: this._observeAttributes
+            attributes: this.observeAttributes
         });
     }
 

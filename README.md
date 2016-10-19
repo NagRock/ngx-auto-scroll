@@ -21,13 +21,16 @@ import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.
 #### In template:
 
 ```html
-<div angular2-auto-scroll="50">
+<div angular2-auto-scroll lock-y-offset="10" observe-attributes>
     <div *ngFor="let message of messages">{{ message }}</div>
 </div>
 ```
 
-Argument passed to directive is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
+#### Atribiutes:
+ 
+Argument passed to `lock-y-offset` is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
 
+`observe-attributes` enable listening on attributes changes for example detect changes in font size.
 ## Building
 
 ```

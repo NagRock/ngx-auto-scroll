@@ -1,10 +1,11 @@
-import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy} from '@angular/core';
+import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy} from "@angular/core";
 
 @Directive({
-    selector: '[angular2-auto-scroll]',
+    selector: '[angular2-auto-scroll]'
 })
 export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
-    @Input('angular2-auto-scroll') lockYOffset = 10;
+    @Input('lock-y-offset') lockYOffset = 10;
+    @Input('observe-attributes') observeAttributes: boolean = false;
 
     private nativeElement: HTMLElement;
     private isLocked = false;
@@ -14,7 +15,8 @@ export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
         this.nativeElement = element.nativeElement;
     }
 
-    @HostListener('scroll') private scrollHandler() {
+    @HostListener('scroll')
+    private scrollHandler() {
         const scrollFromBottom = this.nativeElement.scrollHeight - this.nativeElement.scrollTop - this.nativeElement.clientHeight;
         this.isLocked = scrollFromBottom > this.lockYOffset;
     }
@@ -25,7 +27,11 @@ export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
                 this.nativeElement.scrollTop = this.nativeElement.scrollHeight;
             }
         });
-        this.mutationObserver.observe(this.nativeElement, {childList: true, subtree: true});
+        this.mutationObserver.observe(this.nativeElement, {
+            childList: true,
+            subtree: true,
+            attributes: this.observeAttributes
+        });
     }
 
     ngOnDestroy() {

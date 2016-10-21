@@ -5,7 +5,7 @@ import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy}
 })
 export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
     @Input('lock-y-offset') lockYOffset = 10;
-    @Input('observe-attributes') observeAttributes: boolean = false;
+    @Input('observe-attributes') observeAttributes: string = "false";
 
     private nativeElement: HTMLElement;
     private isLocked = false;
@@ -21,6 +21,10 @@ export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
         this.isLocked = scrollFromBottom > this.lockYOffset;
     }
 
+    getObserveAttributes(): boolean {
+        return this.observeAttributes !== '' && this.observeAttributes.toLowerCase() !== 'false';
+    }
+
     ngAfterContentInit(): void {
         this.mutationObserver = new MutationObserver(() => {
             if (!this.isLocked) {
@@ -30,7 +34,7 @@ export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
         this.mutationObserver.observe(this.nativeElement, {
             childList: true,
             subtree: true,
-            attributes: this.observeAttributes
+            attributes: this.getObserveAttributes()
         });
     }
 

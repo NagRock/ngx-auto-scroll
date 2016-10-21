@@ -30,7 +30,7 @@ import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.
  
 Argument passed to `lock-y-offset` is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
 
-`observe-attributes` enable listening on attributes changes for example detect changes in font size.
+`observe-attributes` (optional, default - false) enable listening on attributes changes for example detect changes in font size.
 ## Building
 
 ```

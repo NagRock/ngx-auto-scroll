@@ -1,3 +1,7 @@
+# Deprecated
+
+Please use ngx-auto-scroll instead.
+
 # Angular 2 auto scroll directive
 
 ## Installation

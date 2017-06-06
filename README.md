@@ -1,31 +1,27 @@
-# Deprecated
-
-Please use ngx-auto-scroll instead.
-
-# Angular 2 auto scroll directive
+# Angular 2+ auto scroll directive
 
 ## Installation
-npm install angular2-auto-scroll
+npm install ngx-auto-scroll
 
 ## Usage
 
 #### In component:
 
 ```typescript
-import {Angular2AutoScroll} from "angular2-auto-scroll/lib/angular2-auto-scroll.directive";
+import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
 
 @Component({
    selector: 'sample',
    templateUrl: 'sample.component.html',
    styleUrls: ['sample.component.css'],
-   directives: [Angular2AutoScroll]
+   directives: [NgxAutoScroll]
 })
 ```
 
 #### In template:
 
 ```html
-<div angular2-auto-scroll lock-y-offset="10" observe-attributes>
+<div ngx-auto-scroll lock-y-offset="10" observe-attributes>
     <div *ngFor="let message of messages">{{ message }}</div>
 </div>
 ```

@@ -1,9 +1,9 @@
 import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy} from "@angular/core";
 
 @Directive({
-    selector: '[angular2-auto-scroll]'
+    selector: '[ngx-auto-scroll]'
 })
-export class Angular2AutoScroll implements AfterContentInit, OnDestroy {
+export class NgxAutoScroll implements AfterContentInit, OnDestroy {
     @Input('lock-y-offset') lockYOffset = 10;
     @Input('observe-attributes') observeAttributes: string = "false";
 

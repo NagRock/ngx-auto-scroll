@@ -22,7 +22,7 @@ export class NgxAutoScroll implements AfterContentInit, OnDestroy {
     public ngAfterContentInit(): void {
         this.mutationObserver = new MutationObserver(() => {
             if (!this.isLocked) {
-                this.nativeElement.scrollTop = this.nativeElement.scrollHeight;
+                this.scrollDown();
             }
         });
         this.mutationObserver.observe(this.nativeElement, {
@@ -34,6 +34,14 @@ export class NgxAutoScroll implements AfterContentInit, OnDestroy {
 
     public ngOnDestroy(): void {
         this.mutationObserver.disconnect();
+    }
+
+    public forceScrollDown(): void {
+        this.scrollDown();
+    }
+
+    private scrollDown(): void {
+        this.nativeElement.scrollTop = this.nativeElement.scrollHeight;
     }
 
     @HostListener("scroll")

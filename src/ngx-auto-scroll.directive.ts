@@ -1,44 +1,52 @@
-import {Directive, ElementRef, HostListener, AfterContentInit, Input, OnDestroy} from "@angular/core";
+import {AfterContentInit, Directive, ElementRef, HostListener, Input, OnDestroy} from "@angular/core";
 
 @Directive({
-    selector: '[ngx-auto-scroll]'
+    selector: "[ngx-auto-scroll]",
 })
 export class NgxAutoScroll implements AfterContentInit, OnDestroy {
-    @Input('lock-y-offset') lockYOffset = 10;
-    @Input('observe-attributes') observeAttributes: string = "false";
+    @Input("lock-y-offset") public lockYOffset: number = 10;
+    @Input("observe-attributes") public observeAttributes: string = "false";
 
     private nativeElement: HTMLElement;
-    private isLocked = false;
+    private isLocked: boolean = false;
     private mutationObserver: MutationObserver;
 
     constructor(element: ElementRef) {
         this.nativeElement = element.nativeElement;
     }
 
-    @HostListener('scroll')
-    private scrollHandler() {
-        const scrollFromBottom = this.nativeElement.scrollHeight - this.nativeElement.scrollTop - this.nativeElement.clientHeight;
-        this.isLocked = scrollFromBottom > this.lockYOffset;
+    public getObserveAttributes(): boolean {
+        return this.observeAttributes !== "" && this.observeAttributes.toLowerCase() !== "false";
     }
 
-    getObserveAttributes(): boolean {
-        return this.observeAttributes !== '' && this.observeAttributes.toLowerCase() !== 'false';
-    }
-
-    ngAfterContentInit(): void {
+    public ngAfterContentInit(): void {
         this.mutationObserver = new MutationObserver(() => {
             if (!this.isLocked) {
-                this.nativeElement.scrollTop = this.nativeElement.scrollHeight;
+                this.scrollDown();
             }
         });
         this.mutationObserver.observe(this.nativeElement, {
             childList: true,
             subtree: true,
-            attributes: this.getObserveAttributes()
+            attributes: this.getObserveAttributes(),
         });
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy(): void {
         this.mutationObserver.disconnect();
+    }
+
+    public forceScrollDown(): void {
+        this.scrollDown();
+    }
+
+    private scrollDown(): void {
+        this.nativeElement.scrollTop = this.nativeElement.scrollHeight;
+    }
+
+    @HostListener("scroll")
+    private scrollHandler(): void {
+        const scrollFromBottom = this.nativeElement.scrollHeight - this.nativeElement.scrollTop - this.nativeElement.clientHeight;
+        this.isLocked = scrollFromBottom > this.lockYOffset;
     }
 }

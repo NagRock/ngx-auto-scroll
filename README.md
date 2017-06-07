@@ -31,6 +31,25 @@ import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
 Argument passed to `lock-y-offset` is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
 
 `observe-attributes` (optional, default - false) enable listening on attributes changes for example detect changes in font size.
+
+#### Forcing scroll down
+
+When your DOM element or its parent is hidden auto scroll won't work. There is no simple/pure way to scroll hidden element. The best way is to force scrolling down after the element is shown.
+
+```typescript
+@Component({
+   selector: 'sample',
+   directives: [NgxAutoScroll]
+})
+export class SampleComponent {
+    @ViewChild(NgxAutoScroll) ngxAutoScroll: NgxAutoScroll;
+    
+    public forceScrollDown(): void {
+        this.ngxAutoScroll.forceScrollDown();
+    }
+}
+```
+
 ## Building
 
 ```

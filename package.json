@@ -1,6 +1,6 @@
 {
   "name": "ngx-auto-scroll",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Angular 2+ directive to automatically scroll html container content to the bottom.",
   "main": "lib/ngx-auto-scroll.directive.js",
   "scripts": {

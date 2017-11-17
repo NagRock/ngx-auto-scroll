@@ -11,9 +11,10 @@
     "div",
     "autoscroll"
   ],
-  files: [
+  "files": [
     "src"
   ],
+  "main": "ngx-auto-scroll/ngx-auto-scroll.directive.ts",
   "dependencies": {
   },
   "devDependencies": {

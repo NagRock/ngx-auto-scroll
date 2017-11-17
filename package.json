@@ -12,7 +12,8 @@
     "autoscroll"
   ],
   "files": [
-    "src"
+    "src",
+    "tsconfig.json"
   ],
   "main": "ngx-auto-scroll/ngx-auto-scroll.directive.ts",
   "dependencies": {

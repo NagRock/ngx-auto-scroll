@@ -11,6 +11,9 @@
     "div",
     "autoscroll"
   ],
+  files: [
+    "src"
+  ],
   "dependencies": {
   },
   "devDependencies": {

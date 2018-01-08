@@ -4,7 +4,8 @@
   "description": "Angular 2+ directive to automatically scroll html container content to the bottom.",
   "main": "lib/ngx-auto-scroll.directive.js",
   "scripts": {
-    "build": "rm -rf lib && tsc -p ."
+    "build": "tsc -p .",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "angular",
@@ -15,7 +16,6 @@
     "src",
     "tsconfig.json"
   ],
-  "main": "ngx-auto-scroll/ngx-auto-scroll.directive.ts",
   "dependencies": {
   },
   "devDependencies": {

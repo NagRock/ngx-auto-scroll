@@ -3,7 +3,7 @@
   "version": "1.0.15",
   "description": "Angular 2+ directive to automatically scroll html container content to the bottom.",
   "scripts": {
-    "build": "ng-packagr",
+    "build": "ng-packagr -p ng-package.json",
     "postinstall": "npm run build"
   },
   "keywords": [

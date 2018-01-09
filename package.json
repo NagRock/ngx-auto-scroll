@@ -1,29 +1,34 @@
 {
   "name": "@beradrian/ngx-auto-scroll",
-  "version": "2.0.0",
+  "version": "2.0.14",
   "description": "Angular 2+ directive to automatically scroll html container content to the bottom.",
   "scripts": {
-    "build": "ng-packagr -p ng-package.json",
-    "publish": "cd dist && npm publish --access public"
+    "ng-build": "ng-packagr -p ng-package.json",
+    "postng-build": "cpx \"dist/@beradrian/*\" dist && rmdir-cli \"dist/@beradrian\"",
+    "preng-publish": "npm run ng-build",
+    "ng-publish": "npm publish dist --access public"
   },
   "keywords": [
     "angular",
     "div",
     "autoscroll"
   ],
-  "files": [
-    "src",
-    "tsconfig.json"
-  ],
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/core": "^5.0.0",
     "@angular/common": "^5.0.0",
     "rxjs": "^5.5.2",
-    "typescript": "~2.4.2",
     "zone.js": "^0.8.14",
-		"ng-packagr": "latest"
+    "typescript": "~2.4.2",
+    "ng-packagr": "latest",
+    "cpx": "latest",
+    "rmdir-cli": "latest"
   },
   "repository": {
     "type": "git",

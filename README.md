@@ -5,16 +5,15 @@ npm install ngx-auto-scroll
 
 ## Usage
 
-#### In component:
+#### In module:
 
 ```typescript
-import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
+import {NgxAutoScrollModule} from "ngx-auto-scroll";
 
-@Component({
-   selector: 'sample',
-   templateUrl: 'sample.component.html',
-   styleUrls: ['sample.component.css'],
-   directives: [NgxAutoScroll]
+@NgModule({
+	...
+	imports: [ ..., NgxAutoScrollModule]
+	...
 })
 ```
 
@@ -26,8 +25,8 @@ import {NgxAutoScroll} from "ngx-auto-scroll/lib/ngx-auto-scroll.directive";
 </div>
 ```
 
-#### Atribiutes:
- 
+#### Attributes:
+
 Argument passed to `lock-y-offset` is bottom offset of scroll position in pixels after scroll container stops auto scroll. Default value is 10.
 
 `observe-attributes` (optional, default - false) enable listening on attributes changes for example detect changes in font size.
@@ -37,13 +36,14 @@ Argument passed to `lock-y-offset` is bottom offset of scroll position in pixels
 When your DOM element or its parent is hidden auto scroll won't work. There is no simple/pure way to scroll hidden element. The best way is to force scrolling down after the element is shown.
 
 ```typescript
+import {NgxAutoScroll} from "ngx-auto-scroll";
+
 @Component({
    selector: 'sample',
-   directives: [NgxAutoScroll]
 })
 export class SampleComponent {
     @ViewChild(NgxAutoScroll) ngxAutoScroll: NgxAutoScroll;
-    
+
     public forceScrollDown(): void {
         this.ngxAutoScroll.forceScrollDown();
     }
@@ -51,7 +51,14 @@ export class SampleComponent {
 ```
 
 ## Building
+This component is built as an Angular 5 module using `ng-packagr`.
 
 ```
-npm run build
+npm run ng-build
+```
+
+## Publishing
+To build and publish this component as an Angular 5 module use
+```
+npm run ng-publishing
 ```

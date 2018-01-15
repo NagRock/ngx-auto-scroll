@@ -8,7 +8,7 @@ export class NgxAutoScroll implements AfterContentInit, OnDestroy {
     @Input("observe-attributes") public observeAttributes: string = "false";
 
     private nativeElement: HTMLElement;
-    private isLocked: boolean = false;
+    public isLocked: boolean = false;
     private mutationObserver: MutationObserver;
 
     constructor(element: ElementRef) {

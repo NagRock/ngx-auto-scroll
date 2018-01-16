@@ -8,7 +8,7 @@ export class NgxAutoScroll implements AfterContentInit, OnDestroy {
     @Input("observe-attributes") public observeAttributes: string = "false";
 
     private nativeElement: HTMLElement;
-    public isLocked: boolean = false;
+    private isLocked: boolean = false;
     private mutationObserver: MutationObserver;
 
     constructor(element: ElementRef) {
@@ -38,6 +38,10 @@ export class NgxAutoScroll implements AfterContentInit, OnDestroy {
 
     public forceScrollDown(): void {
         this.scrollDown();
+    }
+
+    public isScrolledDown(): boolean {
+      return this.isLocked;
     }
 
     private scrollDown(): void {

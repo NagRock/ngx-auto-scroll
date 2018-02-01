@@ -60,5 +60,5 @@ npm run ng-build
 ## Publishing
 To build and publish this component as an Angular 5 module use
 ```
-npm run ng-publishing
+npm run ng-publish
 ```

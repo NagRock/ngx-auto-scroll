@@ -53,6 +53,7 @@ export class SampleComponent {
 #### Example:
 
 Sample project: https://github.com/NagRock/ngx-auto-scroll-example
+
 Demo: https://stackblitz.com/github/NagRock/ngx-auto-scroll-example
 
 ## Building
